@@ -90,7 +90,6 @@ Trabalho06/
 │   ├── gerar_graficos.py   # Gera relatorio.html com Chart.js
 │   └── results/            # CSVs e relatorio.html
 ├── ANALISE_CRITICA.md      # Análise comparativa completa
-└── DEMO_ROTEIRO.md         # Roteiro para a apresentação
 ```
 
 ## Pré-requisitos
