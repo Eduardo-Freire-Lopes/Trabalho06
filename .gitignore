@@ -1,0 +1,30 @@
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+*.pyo
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+
+# Node.js
+node_modules/
+dist/
+*.js.map
+
+# Locust resultados temporários de teste
+load-tests/results/grpc_test_stats.csv
+load-tests/results/grpc_test_failures.csv
+load-tests/results/grpc_test_exceptions.csv
+
+# Variáveis de ambiente
+.env
+.env.local
+
+# VS Code
+.vscode/
+
+# OS
+Thumbs.db
+.DS_Store

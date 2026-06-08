@@ -1,0 +1,6 @@
+Method,Name,Error,Occurrences,First Seen,Last Seen
+POST,Q4 musicas_da_playlist,"ConnectionRefusedError(10061, '[WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente.')",151,2026-06-08T12:31:00Z,2026-06-08T12:31:55Z
+POST,Q5 playlists_com_musica,"ConnectionRefusedError(10061, '[WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente.')",74,2026-06-08T12:31:00Z,2026-06-08T12:31:56Z
+POST,Q1 listar_usuarios,"ConnectionRefusedError(10061, '[WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente.')",205,2026-06-08T12:31:00Z,2026-06-08T12:31:55Z
+POST,Q3 playlists_do_usuario,"ConnectionRefusedError(10061, '[WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente.')",156,2026-06-08T12:31:00Z,2026-06-08T12:31:56Z
+POST,Q2 listar_musicas,"ConnectionRefusedError(10061, '[WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente.')",235,2026-06-08T12:31:00Z,2026-06-08T12:31:56Z

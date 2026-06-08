@@ -1,0 +1,196 @@
+{
+  "info": {
+    "titulo": "Servico de Streaming de Musicas",
+    "descricao": "Contrato canonico compartilhado por SOAP, REST, GraphQL e gRPC nas linguagens Python e TypeScript.",
+    "versao": "1.0.0"
+  },
+  "entidades": {
+    "Usuario": {
+      "campos": {
+        "id":         { "tipo": "integer", "gerado": true },
+        "nome":       { "tipo": "string",  "obrigatorio": true },
+        "email":      { "tipo": "string",  "obrigatorio": true, "unico": true },
+        "criado_em":  { "tipo": "datetime","gerado": true }
+      }
+    },
+    "Musica": {
+      "campos": {
+        "id":                { "tipo": "integer", "gerado": true },
+        "titulo":            { "tipo": "string",  "obrigatorio": true },
+        "artista":           { "tipo": "string",  "obrigatorio": true },
+        "ano_lancamento":    { "tipo": "integer", "obrigatorio": false },
+        "duracao_segundos":  { "tipo": "integer", "obrigatorio": false },
+        "criado_em":         { "tipo": "datetime","gerado": true }
+      }
+    },
+    "Playlist": {
+      "campos": {
+        "id":          { "tipo": "integer", "gerado": true },
+        "nome":        { "tipo": "string",  "obrigatorio": true },
+        "usuario_id":  { "tipo": "integer", "obrigatorio": true, "referencia": "Usuario.id" },
+        "criado_em":   { "tipo": "datetime","gerado": true }
+      }
+    }
+  },
+  "operacoes": {
+    "usuarios": [
+      {
+        "id": "U1",
+        "descricao": "Criar usuario",
+        "rest":    { "metodo": "POST",   "rota": "/usuarios" },
+        "body":    { "nome": "string",   "email": "string" },
+        "retorno": "Usuario"
+      },
+      {
+        "id": "U2",
+        "descricao": "Listar todos os usuarios",
+        "rest":    { "metodo": "GET",    "rota": "/usuarios" },
+        "body":    null,
+        "retorno": "Usuario[]",
+        "nota_teste_carga": "Resposta deve retornar TODOS os registros (500+) para maximizar tamanho da mensagem"
+      },
+      {
+        "id": "U3",
+        "descricao": "Buscar usuario por ID",
+        "rest":    { "metodo": "GET",    "rota": "/usuarios/{id}" },
+        "body":    null,
+        "retorno": "Usuario"
+      },
+      {
+        "id": "U4",
+        "descricao": "Atualizar usuario",
+        "rest":    { "metodo": "PUT",    "rota": "/usuarios/{id}" },
+        "body":    { "nome": "string",   "email": "string" },
+        "retorno": "Usuario"
+      },
+      {
+        "id": "U5",
+        "descricao": "Remover usuario",
+        "rest":    { "metodo": "DELETE", "rota": "/usuarios/{id}" },
+        "body":    null,
+        "retorno": "vazio"
+      }
+    ],
+    "musicas": [
+      {
+        "id": "M1",
+        "descricao": "Criar musica",
+        "rest":    { "metodo": "POST",   "rota": "/musicas" },
+        "body":    { "titulo": "string", "artista": "string", "ano_lancamento": "integer?", "duracao_segundos": "integer?" },
+        "retorno": "Musica"
+      },
+      {
+        "id": "M2",
+        "descricao": "Listar todas as musicas",
+        "rest":    { "metodo": "GET",    "rota": "/musicas" },
+        "body":    null,
+        "retorno": "Musica[]",
+        "nota_teste_carga": "Resposta deve retornar TODOS os registros (500+)"
+      },
+      {
+        "id": "M3",
+        "descricao": "Buscar musica por ID",
+        "rest":    { "metodo": "GET",    "rota": "/musicas/{id}" },
+        "body":    null,
+        "retorno": "Musica"
+      },
+      {
+        "id": "M4",
+        "descricao": "Atualizar musica",
+        "rest":    { "metodo": "PUT",    "rota": "/musicas/{id}" },
+        "body":    { "titulo": "string?", "artista": "string?", "ano_lancamento": "integer?", "duracao_segundos": "integer?" },
+        "retorno": "Musica"
+      },
+      {
+        "id": "M5",
+        "descricao": "Remover musica",
+        "rest":    { "metodo": "DELETE", "rota": "/musicas/{id}" },
+        "body":    null,
+        "retorno": "vazio"
+      }
+    ],
+    "playlists": [
+      {
+        "id": "P1",
+        "descricao": "Criar playlist para um usuario",
+        "rest":    { "metodo": "POST",   "rota": "/playlists" },
+        "body":    { "nome": "string",   "usuario_id": "integer" },
+        "retorno": "Playlist"
+      },
+      {
+        "id": "P2",
+        "descricao": "Listar todas as playlists",
+        "rest":    { "metodo": "GET",    "rota": "/playlists" },
+        "body":    null,
+        "retorno": "Playlist[]"
+      },
+      {
+        "id": "P3",
+        "descricao": "Buscar playlist por ID",
+        "rest":    { "metodo": "GET",    "rota": "/playlists/{id}" },
+        "body":    null,
+        "retorno": "Playlist"
+      },
+      {
+        "id": "P4",
+        "descricao": "Atualizar playlist",
+        "rest":    { "metodo": "PUT",    "rota": "/playlists/{id}" },
+        "body":    { "nome": "string?" },
+        "retorno": "Playlist"
+      },
+      {
+        "id": "P5",
+        "descricao": "Remover playlist",
+        "rest":    { "metodo": "DELETE", "rota": "/playlists/{id}" },
+        "body":    null,
+        "retorno": "vazio"
+      },
+      {
+        "id": "P6",
+        "descricao": "Adicionar musica a uma playlist",
+        "rest":    { "metodo": "POST",   "rota": "/playlists/{id}/musicas" },
+        "body":    { "musica_id": "integer" },
+        "retorno": "vazio"
+      },
+      {
+        "id": "P7",
+        "descricao": "Remover musica de uma playlist",
+        "rest":    { "metodo": "DELETE", "rota": "/playlists/{id}/musicas/{musica_id}" },
+        "body":    null,
+        "retorno": "vazio"
+      }
+    ],
+    "consultas_obrigatorias": [
+      {
+        "id": "Q1",
+        "descricao": "Listar todos os usuarios do servico",
+        "rest":    { "metodo": "GET", "rota": "/usuarios" },
+        "retorno": "Usuario[]"
+      },
+      {
+        "id": "Q2",
+        "descricao": "Listar todas as musicas do servico",
+        "rest":    { "metodo": "GET", "rota": "/musicas" },
+        "retorno": "Musica[]"
+      },
+      {
+        "id": "Q3",
+        "descricao": "Listar todas as playlists de um determinado usuario",
+        "rest":    { "metodo": "GET", "rota": "/usuarios/{id}/playlists" },
+        "retorno": "Playlist[]"
+      },
+      {
+        "id": "Q4",
+        "descricao": "Listar todas as musicas de uma determinada playlist",
+        "rest":    { "metodo": "GET", "rota": "/playlists/{id}/musicas" },
+        "retorno": "Musica[]"
+      },
+      {
+        "id": "Q5",
+        "descricao": "Listar todas as playlists que contem uma determinada musica",
+        "rest":    { "metodo": "GET", "rota": "/musicas/{id}/playlists" },
+        "retorno": "Playlist[]"
+      }
+    ]
+  }
+}

@@ -1,0 +1,81 @@
+syntax = "proto3";
+
+package streaming;
+
+// ─── Entidades ────────────────────────────────────────
+message Usuario {
+  int32  id         = 1;
+  string nome       = 2;
+  string email      = 3;
+  string criado_em  = 4;
+}
+
+message Musica {
+  int32  id                = 1;
+  string titulo            = 2;
+  string artista           = 3;
+  int32  ano_lancamento    = 4;
+  int32  duracao_segundos  = 5;
+  string criado_em         = 6;
+}
+
+message Playlist {
+  int32  id          = 1;
+  string nome        = 2;
+  int32  usuario_id  = 3;
+  string criado_em   = 4;
+}
+
+// ─── Listas ───────────────────────────────────────────
+message ListaUsuarios  { repeated Usuario  usuarios  = 1; }
+message ListaMusicas   { repeated Musica   musicas   = 1; }
+message ListaPlaylists { repeated Playlist playlists = 1; }
+
+// ─── Requests genéricos ───────────────────────────────
+message Empty             {}
+message IdRequest         { int32 id          = 1; }
+message UsuarioIdRequest  { int32 usuario_id  = 1; }
+message MusicaIdRequest   { int32 musica_id   = 1; }
+message PlaylistIdRequest { int32 playlist_id = 1; }
+message BoolResponse      { bool  ok          = 1; }
+
+// ─── Requests de mutação ──────────────────────────────
+message CriarUsuarioRequest     { string nome  = 1; string email  = 2; }
+message AtualizarUsuarioRequest { int32 id = 1; string nome = 2; string email = 3; }
+
+message CriarMusicaRequest     { string titulo = 1; string artista = 2; int32 ano_lancamento = 3; int32 duracao_segundos = 4; }
+message AtualizarMusicaRequest { int32 id = 1; string titulo = 2; string artista = 3; int32 ano_lancamento = 4; int32 duracao_segundos = 5; }
+
+message CriarPlaylistRequest     { string nome = 1; int32 usuario_id = 2; }
+message AtualizarPlaylistRequest { int32 id = 1; string nome = 2; }
+message PlaylistMusicaRequest    { int32 playlist_id = 1; int32 musica_id = 2; }
+
+// ─── Serviços ─────────────────────────────────────────
+service UsuarioService {
+  rpc CriarUsuario     (CriarUsuarioRequest)     returns (Usuario);
+  rpc ObterUsuario     (IdRequest)               returns (Usuario);
+  rpc ListarUsuarios   (Empty)                   returns (ListaUsuarios);
+  rpc AtualizarUsuario (AtualizarUsuarioRequest) returns (Usuario);
+  rpc RemoverUsuario   (IdRequest)               returns (BoolResponse);
+}
+
+service MusicaService {
+  rpc CriarMusica     (CriarMusicaRequest)     returns (Musica);
+  rpc ObterMusica     (IdRequest)              returns (Musica);
+  rpc ListarMusicas   (Empty)                  returns (ListaMusicas);
+  rpc AtualizarMusica (AtualizarMusicaRequest) returns (Musica);
+  rpc RemoverMusica   (IdRequest)              returns (BoolResponse);
+}
+
+service PlaylistService {
+  rpc CriarPlaylist      (CriarPlaylistRequest)     returns (Playlist);
+  rpc ObterPlaylist      (IdRequest)                returns (Playlist);
+  rpc ListarPlaylists    (Empty)                    returns (ListaPlaylists);
+  rpc AtualizarPlaylist  (AtualizarPlaylistRequest) returns (Playlist);
+  rpc RemoverPlaylist    (IdRequest)                returns (BoolResponse);
+  rpc AdicionarMusica    (PlaylistMusicaRequest)    returns (BoolResponse);
+  rpc RemoverMusica      (PlaylistMusicaRequest)    returns (BoolResponse);
+  rpc PlaylistsDoUsuario (UsuarioIdRequest)         returns (ListaPlaylists);
+  rpc MusicasDaPlaylist  (PlaylistIdRequest)        returns (ListaMusicas);
+  rpc PlaylistsComMusica (MusicaIdRequest)          returns (ListaPlaylists);
+}

@@ -1,0 +1,6 @@
+spyne==2.14.0
+lxml==5.3.0
+psycopg2-binary==2.9.9
+python-dotenv==1.0.1
+requests==2.32.3
+zeep==4.3.1

@@ -1,0 +1,12 @@
+Timestamp,User Count,Type,Name,Requests/s,Failures/s,50%,66%,75%,80%,90%,95%,98%,99%,99.9%,99.99%,100%,Total Request Count,Total Failure Count,Total Median Response Time,Total Average Response Time,Total Min Response Time,Total Max Response Time,Total Average Content Size
+1780921050,0,,Aggregated,0.000000,0.000000,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0,0,0,0.0,0,0,0
+1780921051,1,,Aggregated,0.000000,0.000000,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0,0,0,0.0,0,0,0
+1780921052,2,,Aggregated,0.000000,0.000000,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0,0,0,0.0,0,0,0
+1780921053,2,,Aggregated,0.000000,0.000000,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0,0,0,0.0,0,0,0
+1780921054,2,,Aggregated,0.000000,0.000000,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0,0,0,0.0,0,0,0
+1780921055,2,,Aggregated,0.000000,0.000000,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0,0,0,0.0,0,0,0
+1780921056,2,,Aggregated,0.000000,0.000000,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0,0,0,0.0,0,0,0
+1780921057,2,,Aggregated,0.000000,0.000000,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0,0,0,0.0,0,0,0
+1780921058,2,,Aggregated,0.000000,0.000000,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0,0,0,0.0,0,0,0
+1780921059,2,,Aggregated,0.000000,0.000000,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0,0,0,0.0,0,0,0
+1780921060,2,,Aggregated,0.000000,0.000000,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0,0,0,0.0,0,0,0

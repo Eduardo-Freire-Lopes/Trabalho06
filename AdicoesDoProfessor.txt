@@ -1,0 +1,197 @@
+(Transcrito por TurboScribe. Atualize para Ilimitado para remover esta mensagem.)
+
+O trabalho é comparar a tecnologia de invocação de serviços remoto. Já até diantei na explícita feira. E nós vamos comparar quatro tecnologias, quatro paradigmas, quatro framework, e fazer os serviços remoto ser invocado por um clima.
+
+Somos, você está falando agora? O MCS primeiro, o dobro do mercado. O REST veio depois, mais simplificado. Grave QL, que é um clima bem conhecido, mas não tão popular.
+
+Que é uma extensão do REST. Feito um ano pra gente amanhã, assim eu uso. E o GRPC, que nós falamos também naquela passada.
+
+Só o que foi criado pela Microsoft virou um padrão de toda a indústria, doutor. O REST foi criado na testa doutora do Whitefield, que eu até vou te mostrar. Depois virou o padrão também, se imprimou, que eu estou me entrando.
+
+Grave QL, uma extensão do REST. Foi criada no Facebook, antes de virar a meta. A gente foi utilizada por um botão de sócio, que tem suporte para o grafo, que é o de aniversário.
+
+E o GRPC foi criado eternamente na Google, depois virou uma biblioteca de suporte para o aniversário originalmente. Todos eles têm disponível, só que nem tanto porque é antigo. E que é chato.
+
+Mas Grave QL, que é o GRPC, tem biblioteca para fazer os três, qualquer embalagem moderna que você quer usar hoje em dia. Vão para fazer o serviço que vai ser chamado, ou para fazer o cliente que vai chamar o serviço. Se eu ofereço um serviço do MAP REST, eu tenho que usar um cliente usando biblioteca REST para chamar o serviço.
+
+Se eu ofereço um serviço em Grave QL, tenho que ter uma biblioteca cliente que vai chamar o serviço em Grave QL, e a biblioteca servidor vai oferecer um serviço em Grave QL, e assim para GRPC. Todos eles são de multilimplagem, eu posso fazer o serviço de GRPC em Java, e chamar o serviço de GRPC de Baico, ou de Cestave, ou de qualquer outro linguagem. E isso vale para todos eles, eles são todos de multilimplagem, eu explore a linguagem para fazer muito.
+
+Se for GRPC, tem que ser GRPC na outra conta, mas a linguagem é aquela que serve. Então, o que nós vamos comparar é o exposto barra de desempenho dessas quatro tecnologias. Para isso, nós vamos fazer hoje o que nós temos no trabalho, nós vamos reclamar um beijo de serviço com quatro apenas, e vamos chamar o mesmo serviço pelas quatro apenas diferentes dos clientes, e vamos pedir esse beijo, e o que nós vamos comparar agora é como o backend é o mesmo, qualquer diferença, tem a ver com a tecnologia utilizada.
+
+Não está aqui no slide, mas está aqui oficialmente e eu estou anunciando, vocês vão fazer em grupos, vocês vão planetar o mesmo serviço, mas vai dizer para ele, nas quatro APIs, em, no mínimo, vai ter mais, dois linguagens, então. Você faz o serviço? A mesma linguagem, você quer fazer uma versão do serviço com API Rust, API GraphQL, e com API GMPC. Eu vou poder chamar o serviço, só vai ver o serviço do JLPC e eu vou chamar todo cliente JLPC.
+
+Só vai ver um serviço com cliente, com API GraphQL, que eu vou chamar do cliente GraphQL. Só não estou achando que escolha a versão. O serviço é o mesmo, mesmo que eu diga, ele faz as mesmas coisas.
+
+Como é que eu chamo, vai depender da tecnologia. Como são duas linguagens diferentes, você não tem que fazer as quatro APIs de uma linguagem, e as quatro APIs da outra, que você não tem, pelo menos, oito versões dos serviços. Não é tão assim, porque, se você não ver na prática, que eu possa aproveitar o serviço e mudar só a API, a partir da frente, você pode usar o código e mudar a API, mas vai ter que ter versão diferente.
+
+E aí, você não tem que ter cliente para chamar nas duas linguagens, por exemplo, a linguagem de copo, nas quatro APIs. Quer fazer perguntas? Só por exemplo, um serviço com API, um serviço com API, você vai fazer um API do API que está disponível, via só, via REST, via GraphQL, e via ele aí fazer. E depois, outra linguagem.
+
+As quatro também, tem que ter as quatro APIs. Realmente, você faz uma versão e sobe diferente, vai ter uma imagem para cada versão, por exemplo, se quiser se lembrar. Sobe, chefe, terceiro, acho que é bom.
+
+GraphQL. Tá aí, dá no meu like. Eu tenho alguns links aqui, mas a gente tem que interlocar, todas as quatro não conhecem.
+
+Então, a especificação velha fala, estude a história, a origem, cês, né? Não quer, só quer aí que eu apresentar os testes. Vou fazer 10 de carga com eles. Já falo.
+
+Qual é o serviço? No passado, eu, quando eu fazia esse trabalho, cada equipe tinha que implementar um serviço diferente. Não diga aí que serviço eles vão fazer, e quem dissesse, o outro equipe já não podia pegar mais. Tem que pegar diferente.
+
+Então, não tinha como copiar o live implementação. Todo mundo tinha que fazer um API diferente com serviço diferente. Depois eu falei, ah, cês, eu só dá mais trabalho de origem.
+
+Então, é o mesmo serviço para todo mundo. Não importa, eu confiar que você me vão copiar com o outro. Você joga as suas sabedades da ética, me vota quando cês, eu vou copiar para todo mundo. 
+
+Até mais fácil também de tirar tudo. E aí, qual é o serviço que eu estou recomendando, não é recomendado, não tem que ser. Vai ficar mais fácil para isso.
+
+Pelo menos essa parte não tem mais que pensar. O serviço é... Aqui, a conversão é simplificada do que eu quero que o serviço faça. Aqui, é o diagrama e o clássico do serviço.
+
+Vai ser uma de minhas entidades. É um serviço que estrega de música. É lá que você pode fazer isso.
+
+É como se você te fosse fazer música, pode fazer. Então, esse serviço vai ser um API, operações para criar usuário, consultar usuário, a terada do usuário, dedicar o usuário, criar música, dedicar a música, a terada do usuário, etc. E playlist.
+
+Como é um típico serviço, eu posso ter coleção, eu posso dar um gadget na coleção, e está todo o usuário para a coleção. Dá um gadget no ID de um usuário. Me dá um dado para o que é que o usuário.
+
+Não são coleções? Começou a gente da Coração de Música, Coração de Música, Coração de Colegistro e A Play. A Play que está vendo aí, é um relacionamento. O dado do usuário, pode criar uma playlist que é uma lista do serviço que existe na Coração de Música, que é a Play.
+
+Eu sugiro aqui alguns atributos mínimos para cá já. A gente sabe que vocês podem deixar a vontade de colocar mais atributos. Artista, ano que logo foi lançado, número de atributos.
+
+Aí é como vocês estão vestindo. Não precisa ter MP3 armazenáveis. Não precisa ter um toca-dota de toca-dota de MP3, mas se quiser, ali é que a maionada vai entrar na cadeira, vai embora.
+
+Desruta aí o Spotify. Eu quero só o 70%. Planetário, no meu tabloco.
+
+Eu vou para o devagar. Quer dizer se você não tem tal dedicação? Ah! Quer dizer se você for um homazinho? Se quiser, é melhor ser um joguinho. Um joguinho.
+
+Não precisa. Teria que ter lá um serviço de autenticação. Se fosse tabu, que tu usaria o índio com a WS, que estaria tirando a aplicação.
+
+Você não. Você não. Não, você não.
+
+Eu estou rolando na tua máquina. Você tem um problema e vai simplificar. Certo? Resumo.
+
+Quero que você se implemente, eu inclui de completo todas as entidades. Lá na repostora vai estar tudo. Me mostra rodando.
+
+Aqui é o pessoal. Get usuário. Derecto um usuário assim.
+
+Criando um novo usuário. Só para ver o que está funcionando. Criar playlist para esse usuário.
+
+Como você faz? Você pode usar um post para fazer isso. Certo? Você mostra o que está funcionando. Eu vou dizer assim.
+
+Mostra aí, listos dos usuários. Sobe a versão de IRPC. Pegue um clínio de IRPC qualquer.
+
+E mostra. Mostra listo de música, listo de usuário. Criar música.
+
+Eu posso pedir qualquer desapeio. Derecto um linguagem para você escolher. Para a gente brincar.
+
+Para mostrar que está funcionando. É isso. Quando estiver funcionando.
+
+Você vai definir os testes. Que você vai fazer. Para poder ver o que é mais eficiente.
+
+Quem não é. Para esses outros trabalhos. Você vai variar. A quantidade de usuário acessando a playlist.
+
+Noutra vez. Pode fazer a carga. Pode o cliente de vocês.
+
+Ou pode fazer. Ou pode fazer. Ser um cliente que chama o serviço.
+
+Porque ele já tem todas aquelas métricas de geral. Você pode fazer o cliente. Vai para o locuste.
+
+Que chama a API das pessoas. Como é ruim o uso do linguagem. O cliente vai para o locuste.
+
+Pode chamar qualquer. Se você subir a versão da linguagem. Ele chama qualquer.
+
+Então até consegue usar. Para fazer um teste de carga. Então você vai descobrir.
+
+Quantidades de usuários. Que você pode fazer as cargas. Pode fazer as cargas só.
+
+Não tem muito exigência. Não quero que você desculpa o ponto de 5 mil. Mas eu quero que vocês induzam.
+
+Que as respostas na hora de chamar a API. Sejam maiores. Para extraçar mais a aplicação.
+
+Então atenção. Na hora dos testes. Eu quero que vocês carregem.
+
+Que cada vez tem. Muitos dados de serviço. De ordem de centenas.
+
+Por exemplo centenas de usuários. Centenas de músicas. De azeite de clientes.
+
+Dá um nugget. Na coleção de usuário. Vem lá.
+
+500 usuários. 500. Você pode usar.
+
+Será fictício. Na hora do teste. Eu quero que o serviço esteja carregado de dados.
+
+É só como se fizer os get. Essas mensagens ser grandes. Para isso você pode ter um inscrito.
+
+Que carrega os dados antes. Antes de fazer os testes. Ou se quiserem.
+
+Eu falei aqui, isso é opcional. Vocês podem, não é obrigatório. Me conectar o serviço com persistência.
+
+Por exemplo, pode ter um banco de dados de trafico. Se você carraça aqui. O usuário fica no banco.
+
+Se for só em memória. Você também pode, não precisa ter banco. Tirou do ar.
+
+Apaga o que quer memória. Não tem mais dados. Não é diferença anterior.
+
+Tem gente que prefere fazer com persistência. Tem gente que prefere sair. 100% tem que subir banco.
+
+Mas tem que estar sempre carregando. Tem um serviço para carregar o dado. Tirou da exerção.
+
+Mónico que te demora para perder. Então a gente que o teste tem carregado. O que faz com persistência na hora de fazer o teste.
+
+É só estar dando todo o cheio de dados para fazer o teste. Para os testes. Embora o queira ver funcionando.
+
+Queria um usuário. Para os testes. Queria ficar mais simples.
+
+A gente vai fazer só o teste. Porque ele não opera o estado do serviço. O que é que você não usa? O que é que você fica? Isso é todo o usuário.
+
+Todas as músicas. Todas as playlist de usuário. Exemplo algumas.
+
+A gente fala que o modelo que você está lá. Mista todas as músicas em uma playlist. E aí é o seu útil.
+
+Mista todas as playlist. Contém em uma determinada música. Dependendo do que você implementa.
+
+É até não trivial fazer essa música. Tem que ter todas as playlist. E ver se tem aquela música.
+
+Se você que lucre uma música. Tem uma tributa. Para qual playlist ela está.
+
+A música é bem trivial. Você vai implementar o serviço. Eu estou dando um exemplo.
+
+Você pode fazer uma sequência de vocação dessa. Um 10 usuário. Chamar essa sequência de guides.
+
+Um 100 mil por caso. Qual era o custê. Por que eu quero que a resposta seja um grande? Porque na hora da API gerar.
+
+Porta um 3G, um GSML. O GNPC por exemplo é pimado. Se for muito pequeno.
+
+Tem muita diferença. Mas se você estiver com a mão. E os elementos de um GSML.
+
+Uma resposta. Um GSML. Já vai fazer diferença e resumo.
+
+Mas a PES tem muita diferença. Foi investido em GSML. E escalabilidade.
+
+Por exemplo, um servidor que está gerando uma resposta solta. Ele sofre muito mais. Porque ele está gerando uma resposta de RPC.
+
+Se você bota muito. Se é de novo. Ele fica.
+
+Os perigos são piores. Por exemplo, a API mais. Então, já estou adiantando.
+
+Tem muita diferença. Se você estiver com o GSML. Tudo igual.
+
+E quanto maior. O tamanho das mensagens. A quantidade de cagas.
+
+Então, calibre aí. Pelo menos umas 2, 3 cagas. Para você ver se essas diferenças.
+
+As mensagens aparecem. O teste está aqui. Aí eu estou aqui com as diferenças.
+
+Com o que no passado não tinha. A gente vai ajudar. Mas eu admito tudo na conta dele.
+
+Mas é isso. Vamos fazer o trabalho. Se você tem mais dúvidas.
+
+Implemento o serviço. Mostre que funciona. Põe tudo na tua história.
+
+Faça uns testes. E vai ver quem ganha. Vamos botar.
+
+Rinde a pensura. Quem ganha soube. Tem uma era que essa é a pior.
+
+Essa é a melhor. Uma ganha a outra. A gente fez outra vez.
+
+Você tem outras coisas. Eu vou ajeitar lá. Ela vai dizer exatamente o que é o prazo para registrar.
+
+Mas eu estou precisamente de dizer que é o prazo para entregar. Você vai se livrar a vez. E dá a gente fazer o próximo.
+
+É bem melhor.
+
+(Transcrito por TurboScribe. Atualize para Ilimitado para remover esta mensagem.)
