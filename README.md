@@ -1,5 +1,17 @@
 # Trabalho 06 — Comparação de Tecnologias de Invocação de Serviços Remotos
 
+---
+
+## 👥 Alunos
+
+| Nome | Matrícula |
+|------|-----------|
+| Eduardo Célio Freire Lopes | 2120351 |
+| Sara Pessoa Silva | 2120371 |
+| Luiz Roberto Chaves | 2418598 |
+
+---
+
 Implementação de um serviço de **streaming de música** usando 4 tecnologias de invocação remota, cada uma em 2 linguagens de programação, com testes de carga comparativos.
 
 ## Tecnologias e Linguagens
