@@ -2,7 +2,7 @@
 
 ---
 
-## 👥 Alunos
+## Alunos
 
 | Nome | Matrícula |
 |------|-----------|
