@@ -47,9 +47,12 @@ docker exec streaming-pg psql -U postgres -d streaming -c `
 
 ### Servidor Python (porta 8000)
 ```powershell
-cd rest/python
-..\..\venv\Scripts\python.exe -m uvicorn main:app --port 8000 --reload
+cd "c:\Users\Profectum\NaborClasse\Trabalho06\rest\python"
+c:\Users\Profectum\NaborClasse\Trabalho06\.venv\Scripts\python.exe -m uvicorn main:app --port 8000 --reload
 ```
+
+### Swagger Python
+Start-Process "http://localhost:8000/docs"
 
 ### Servidor TypeScript (porta 8001)
 ```powershell
@@ -107,8 +110,8 @@ Invoke-RestMethod http://localhost:8000/playlists -Method POST `
 
 ### Servidor Python (porta 8002)
 ```powershell
-cd graphql/python
-..\..\venv\Scripts\python.exe -m uvicorn main:app --port 8002 --reload
+cd "c:\Users\Profectum\NaborClasse\Trabalho06\graphql\python"
+c:\Users\Profectum\NaborClasse\Trabalho06\.venv\Scripts\python.exe -m uvicorn main:app --port 8002 --reload
 ```
 
 ### Servidor TypeScript (porta 4000)
@@ -190,6 +193,15 @@ npx ts-node src/client.ts
 > **Nota:** gRPC usa protocolo binário (Protobuf) sobre HTTP/2.
 > O contrato está em `grpc/streaming.proto`.
 
+### Queries Q1–Q5 via client Python (raiz do projeto)
+```powershell
+# O client cobre todas as queries automaticamente:
+c:\Users\Profectum\NaborClasse\Trabalho06\.venv\Scripts\python.exe grpc/python/client.py
+```
+
+> gRPC usa protocolo binário — não é possível fazer chamadas diretas com Invoke-RestMethod.
+> O client acima demonstra Q1–Q5 em sequência no terminal.
+
 ---
 
 ## 5. SOAP
@@ -214,6 +226,34 @@ npx ts-node src/server.ts
 ```powershell
 cd soap/typescript
 npx ts-node src/client.ts
+```
+
+### Queries Q1–Q5 via envelope SOAP (PowerShell)
+```powershell
+# Q1 - Listar todos os usuários
+$envelope = '<?xml version="1.0"?><soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tns="http://streaming.local/"><soapenv:Body><tns:listar_usuarios/></soapenv:Body></soapenv:Envelope>'
+Invoke-RestMethod http://localhost:8006/ -Method POST -ContentType "text/xml; charset=utf-8" -Body $envelope
+
+# Q2 - Listar todas as músicas
+$envelope = '<?xml version="1.0"?><soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tns="http://streaming.local/"><soapenv:Body><tns:listar_musicas/></soapenv:Body></soapenv:Envelope>'
+Invoke-RestMethod http://localhost:8006/ -Method POST -ContentType "text/xml; charset=utf-8" -Body $envelope
+
+# Q3 - Playlists de um usuário
+$envelope = '<?xml version="1.0"?><soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tns="http://streaming.local/"><soapenv:Body><tns:playlists_do_usuario><usuario_id>1</usuario_id></tns:playlists_do_usuario></soapenv:Body></soapenv:Envelope>'
+Invoke-RestMethod http://localhost:8006/ -Method POST -ContentType "text/xml; charset=utf-8" -Body $envelope
+
+# Q4 - Músicas de uma playlist
+$envelope = '<?xml version="1.0"?><soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tns="http://streaming.local/"><soapenv:Body><tns:musicas_da_playlist><playlist_id>1</playlist_id></tns:musicas_da_playlist></soapenv:Body></soapenv:Envelope>'
+Invoke-RestMethod http://localhost:8006/ -Method POST -ContentType "text/xml; charset=utf-8" -Body $envelope
+
+# Q5 - Playlists que contêm uma música
+$envelope = '<?xml version="1.0"?><soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tns="http://streaming.local/"><soapenv:Body><tns:playlists_com_musica><musica_id>1</musica_id></tns:playlists_com_musica></soapenv:Body></soapenv:Envelope>'
+Invoke-RestMethod http://localhost:8006/ -Method POST -ContentType "text/xml; charset=utf-8" -Body $envelope
+```
+
+### WSDL (contrato do serviço)
+```powershell
+Start-Process "http://localhost:8006/?wsdl"
 ```
 
 ---
