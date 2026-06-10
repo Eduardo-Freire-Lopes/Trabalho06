@@ -28,3 +28,9 @@ load-tests/results/grpc_test_exceptions.csv
 # OS
 Thumbs.db
 .DS_Store
+
+# Arquivos locais / não versionados
+CHECKLIST_TRABALHO06.md
+DEMO_ROTEIRO.md
+Trabalho 6 – Comparação de Tecnologias de Invocação de Serviços Remotos.pdf
+trabalho06_extraido.txt
