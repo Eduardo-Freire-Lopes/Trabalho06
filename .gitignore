@@ -17,6 +17,11 @@ dist/
 load-tests/results/grpc_test_stats.csv
 load-tests/results/grpc_test_failures.csv
 load-tests/results/grpc_test_exceptions.csv
+load-tests/results/temp/
+load-tests/results/relatorio.html
+load-tests/_fix_na.py
+load-tests/_write_graficos.py
+load-tests/_write_graficos2.py
 
 # Variáveis de ambiente
 .env
@@ -30,6 +35,7 @@ Thumbs.db
 .DS_Store
 
 # Arquivos locais / não versionados
+CONCLUSOES.md
 CHECKLIST_TRABALHO06.md
 DEMO_ROTEIRO.md
 Trabalho 6 – Comparação de Tecnologias de Invocação de Serviços Remotos.pdf

@@ -31,7 +31,7 @@ from streaming import (
 )
 
 HOST = "localhost"
-PORT = 8004
+PORT = 8004  # default; pode ser sobrescrito via --port
 
 TASKS = [
     ("Q1 ListarUsuarios",     3),
@@ -165,8 +165,10 @@ def write_csv(stats: dict, csv_prefix: str, run_time: float):
     )
 
 
-async def main(num_users: int, run_time: int, csv_prefix: str):
-    print(f"[bench_grpc] {num_users} usuários × {run_time}s → {csv_prefix}")
+async def main(num_users: int, run_time: int, csv_prefix: str, port: int = 8004):
+    global PORT
+    PORT = port
+    print(f"[bench_grpc] {num_users} usuários × {run_time}s → {csv_prefix} (porta {PORT})")
     stats: dict = defaultdict(list)
     run_until = time.monotonic() + run_time
 
@@ -186,6 +188,8 @@ if __name__ == "__main__":
                         help="Duração em segundos")
     parser.add_argument("--csv",      type=str, default="results/grpc_bench",
                         help="Prefixo do arquivo CSV de saída")
+    parser.add_argument("--port",     type=int, default=8004,
+                        help="Porta do servidor gRPC")
     args = parser.parse_args()
 
-    asyncio.run(main(args.users, args.run_time, args.csv))
+    asyncio.run(main(args.users, args.run_time, args.csv, args.port))

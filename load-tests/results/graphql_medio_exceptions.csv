@@ -1,1 +1,110 @@
 Count,Message,Traceback,Nodes
+182,Expecting value: line 1 column 1 (char 0),"  File ""C:\Users\Profectum\NaborClasse\Trabalho06\.venv\Lib\site-packages\locust\user\task.py"", line 363, in run
+    self.execute_next_task()
+    ~~~~~~~~~~~~~~~~~~~~~~^^
+  File ""C:\Users\Profectum\NaborClasse\Trabalho06\.venv\Lib\site-packages\locust\user\task.py"", line 396, in execute_next_task
+    self.execute_task(self._task_queue.popleft())
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""C:\Users\Profectum\NaborClasse\Trabalho06\.venv\Lib\site-packages\locust\user\task.py"", line 513, in execute_task
+    task(self.user)
+    ~~~~^^^^^^^^^^^
+  File ""C:\Users\Profectum\NaborClasse\Trabalho06\load-tests\locust_graphql.py"", line 24, in q1_usuarios
+    self._gql(""{usuarios{id nome email}}"", name=""Q1 {usuarios}"")
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""C:\Users\Profectum\NaborClasse\Trabalho06\load-tests\locust_graphql.py"", line 18, in _gql
+    body = r.json()
+  File ""C:\Users\Profectum\NaborClasse\Trabalho06\.venv\Lib\site-packages\requests\models.py"", line 1120, in json
+    raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
+",local
+68,Expecting value: line 1 column 1 (char 0),"  File ""C:\Users\Profectum\NaborClasse\Trabalho06\.venv\Lib\site-packages\locust\user\task.py"", line 363, in run
+    self.execute_next_task()
+    ~~~~~~~~~~~~~~~~~~~~~~^^
+  File ""C:\Users\Profectum\NaborClasse\Trabalho06\.venv\Lib\site-packages\locust\user\task.py"", line 396, in execute_next_task
+    self.execute_task(self._task_queue.popleft())
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""C:\Users\Profectum\NaborClasse\Trabalho06\.venv\Lib\site-packages\locust\user\task.py"", line 513, in execute_task
+    task(self.user)
+    ~~~~^^^^^^^^^^^
+  File ""C:\Users\Profectum\NaborClasse\Trabalho06\load-tests\locust_graphql.py"", line 51, in q5_playlists_com_musica
+    self._gql(
+    ~~~~~~~~~^
+        ""query($mid:Int!){playlistsComMusica(musicaId:$mid){id nome}}"",
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        {""mid"": mid},
+        ^^^^^^^^^^^^^
+        name=""Q5 playlistsComMusica"",
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File ""C:\Users\Profectum\NaborClasse\Trabalho06\load-tests\locust_graphql.py"", line 18, in _gql
+    body = r.json()
+  File ""C:\Users\Profectum\NaborClasse\Trabalho06\.venv\Lib\site-packages\requests\models.py"", line 1120, in json
+    raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
+",local
+113,Expecting value: line 1 column 1 (char 0),"  File ""C:\Users\Profectum\NaborClasse\Trabalho06\.venv\Lib\site-packages\locust\user\task.py"", line 363, in run
+    self.execute_next_task()
+    ~~~~~~~~~~~~~~~~~~~~~~^^
+  File ""C:\Users\Profectum\NaborClasse\Trabalho06\.venv\Lib\site-packages\locust\user\task.py"", line 396, in execute_next_task
+    self.execute_task(self._task_queue.popleft())
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""C:\Users\Profectum\NaborClasse\Trabalho06\.venv\Lib\site-packages\locust\user\task.py"", line 513, in execute_task
+    task(self.user)
+    ~~~~^^^^^^^^^^^
+  File ""C:\Users\Profectum\NaborClasse\Trabalho06\load-tests\locust_graphql.py"", line 42, in q4_musicas_da_playlist
+    self._gql(
+    ~~~~~~~~~^
+        ""query($pid:Int!){musicasDaPlaylist(playlistId:$pid){id titulo}}"",
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        {""pid"": pid},
+        ^^^^^^^^^^^^^
+        name=""Q4 musicasDaPlaylist"",
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File ""C:\Users\Profectum\NaborClasse\Trabalho06\load-tests\locust_graphql.py"", line 18, in _gql
+    body = r.json()
+  File ""C:\Users\Profectum\NaborClasse\Trabalho06\.venv\Lib\site-packages\requests\models.py"", line 1120, in json
+    raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
+",local
+184,Expecting value: line 1 column 1 (char 0),"  File ""C:\Users\Profectum\NaborClasse\Trabalho06\.venv\Lib\site-packages\locust\user\task.py"", line 363, in run
+    self.execute_next_task()
+    ~~~~~~~~~~~~~~~~~~~~~~^^
+  File ""C:\Users\Profectum\NaborClasse\Trabalho06\.venv\Lib\site-packages\locust\user\task.py"", line 396, in execute_next_task
+    self.execute_task(self._task_queue.popleft())
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""C:\Users\Profectum\NaborClasse\Trabalho06\.venv\Lib\site-packages\locust\user\task.py"", line 513, in execute_task
+    task(self.user)
+    ~~~~^^^^^^^^^^^
+  File ""C:\Users\Profectum\NaborClasse\Trabalho06\load-tests\locust_graphql.py"", line 28, in q2_musicas
+    self._gql(""{musicas{id titulo artista}}"", name=""Q2 {musicas}"")
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""C:\Users\Profectum\NaborClasse\Trabalho06\load-tests\locust_graphql.py"", line 18, in _gql
+    body = r.json()
+  File ""C:\Users\Profectum\NaborClasse\Trabalho06\.venv\Lib\site-packages\requests\models.py"", line 1120, in json
+    raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
+",local
+110,Expecting value: line 1 column 1 (char 0),"  File ""C:\Users\Profectum\NaborClasse\Trabalho06\.venv\Lib\site-packages\locust\user\task.py"", line 363, in run
+    self.execute_next_task()
+    ~~~~~~~~~~~~~~~~~~~~~~^^
+  File ""C:\Users\Profectum\NaborClasse\Trabalho06\.venv\Lib\site-packages\locust\user\task.py"", line 396, in execute_next_task
+    self.execute_task(self._task_queue.popleft())
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""C:\Users\Profectum\NaborClasse\Trabalho06\.venv\Lib\site-packages\locust\user\task.py"", line 513, in execute_task
+    task(self.user)
+    ~~~~^^^^^^^^^^^
+  File ""C:\Users\Profectum\NaborClasse\Trabalho06\load-tests\locust_graphql.py"", line 33, in q3_playlists_do_usuario
+    self._gql(
+    ~~~~~~~~~^
+        ""query($uid:Int!){playlistsDoUsuario(usuarioId:$uid){id nome}}"",
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        {""uid"": uid},
+        ^^^^^^^^^^^^^
+        name=""Q3 playlistsDoUsuario"",
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File ""C:\Users\Profectum\NaborClasse\Trabalho06\load-tests\locust_graphql.py"", line 18, in _gql
+    body = r.json()
+  File ""C:\Users\Profectum\NaborClasse\Trabalho06\.venv\Lib\site-packages\requests\models.py"", line 1120, in json
+    raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
+",local
